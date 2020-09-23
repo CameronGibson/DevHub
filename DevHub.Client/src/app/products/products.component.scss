@@ -1,0 +1,80 @@
+@import 'src/styles.scss';
+
+.grid-style {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    grid-gap: 18px;
+    grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
+    padding: 14px;
+}
+
+.card-style {
+    padding: 10px;
+    box-shadow: 0 0 20px 3px;
+    border-color: map-get($heroes-app-accent, A700);
+}
+
+.product-title {
+    text-align: center;
+    margin: 0;
+}
+
+.product-content {
+    min-height: 210px;
+    max-height: 210px;
+}
+
+.product-price {
+    text-align: center;
+    margin: 0;
+    font-weight: 500;
+}
+
+.card-footer-icon {
+    margin-top: 10px;
+    cursor: pointer;
+    color: map-get($heroes-app-accent, A700) !important;
+}
+
+.footer-card-content {
+    text-align: center;
+}
+
+.img-position {
+    text-align: center;
+    top: 28%;
+    position: relative;
+}
+
+.product-toolbar {
+    bottom: 20px;
+    position: relative;
+    background-color: #171717;
+    box-shadow: 0 2px 20px 0 black;
+    columns: 3;
+}
+
+.filter-products {
+    z-index: 9;
+    margin-left: 70vw;
+}
+
+.switch-filter {
+    color: rgba(255,255,255,0.87);
+    direction: rtl;
+    margin: auto;
+}
+
+.switch-spacer {
+    padding-right: 8px;
+}
+
+.publish-button {
+    margin: auto;
+}
+
+.publish-text {
+    color: white;
+}
+

@@ -1,0 +1,42 @@
+<mat-toolbar class="product-toolbar">
+    <div class="filter-products" matTooltip="Filter Endorsed Content Only">
+        <mat-slide-toggle class="switch-filter" (click)="filterEndorsedContent()">
+            <p class="switch-spacer">Endorsed Content</p>
+        </mat-slide-toggle>
+    </div>
+    <button class="publish-button" mat-stroked-button color="accent" (click)="openDialog()">
+        <div class="publish-text">
+            Publish Content
+        </div>
+    </button>
+</mat-toolbar>
+
+<div class="separate-content"></div>
+<section class="grid-style">
+    <div *ngFor="let product of productList">
+        <mat-card class="card-style">
+            <mat-card-title class="product-title">{{product.modelName}}</mat-card-title>
+            <p class="product-price">${{product.modelPrice}}</p>
+            <mat-divider></mat-divider>
+            <mat-card-content class="product-content img-position">
+                <img class="img-position" src="{{product.modelImage}}" alt="Product Image">
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-action>
+                <!--when clicked, will add to cart-->
+                <div class="footer-card-content">
+                    <mat-icon matTooltip="Add {{product.modelName}} To Cart" class="card-footer-icon">add_shopping_cart
+                    </mat-icon>
+                </div>
+            </mat-card-action>
+        </mat-card>
+    </div>
+</section>
+
+<!--To Do
+1.)when clicking the add cart icon, the item in the card should be added to the cart.
+5.)get images into the program and associate them with their products.
+6.)Add a side nav. this is where product types will be chosen. i.e. music, 3d models, materials etc.
+
+switch is hiding when sidenav is closed.
+-->

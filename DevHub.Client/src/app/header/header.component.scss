@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import 'src/styles.scss';
+
+
+/* 
+$heroes-app-primary , key
+$heroes-app-accent , key
+$heroes-app-error , key
+*/
+.sticky-header {
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    height: 10px;
+}
+
+.header-content {
+    background-color: map-get($heroes-app-accent, A700);
+    height: 40px;
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+    position: static;
+    margin-bottom: 18px;
+}
+
+.header-title {
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Merienda One', cursive;
+    font-size: 24px;
+    white-space: nowrap;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.column {
+    float: left;
+    width: 33%;
+}
+
+.header-column-icon {
+    color: rgba(255, 255, 255, 1);
+    float: left;
+    margin-top: 9px;
+    cursor: pointer;
+    padding-left: 10px
+}
+
+.header-column-menu {
+    color: rgba(255, 255, 255, 1);
+    float: right;
+    margin-top: 7px;
+    cursor: pointer;
+}
+
+.menu-item-text {
+    font-weight: 600;
+}
+
+.menu-icon {
+    color: map-get($heroes-app-accent, A700) !important;
+}
+
+.cart-orientation {
+    padding-right: 12px;
+    margin-top: 10px;
+}
+
+.more-vert-icon {
+    margin-top: 10px;
+}
+
+.list-styling {
+    background-color: #202020;
+    display: inline-block;
+    width: 200px;
+    height: 100vh;
+    margin-top: -18px;
+    position: fixed;
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+}
+
+.option-text {
+    color: rgba(255,255,255,0.87) !important;
+    float: left;
+    background-color: #202020;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 12px !important;
+}
+
+.sub-section {
+    font-family: 'Merienda One', cursive;
+    text-align: center;
+    background-color: #171717;
+    margin: -8px 0 0 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.dev-tool-align {
+    padding-top: 82%;
+}
+
+.close-icon {
+    color: rgba(255,255,255,0.87) !important;
+    font-size: 32px !important;
+    cursor: pointer;
+    position: sticky;
+    float: right;
+    margin-left: 90% !important;
+}
+
+.close-icon:hover {
+    color: map-get($heroes-app-accent, A700) !important;
+    transition-duration: 0.5s;
+}
+
+.open-side-nav-icon {
+    color: rgba(255,255,255,0.87) !important;
+    border-radius: 100%;
+    background-color: #202020;
+    width: 75px;
+    height: 75px;
+    box-shadow: 0px 0px 10px black;
+    margin-left: -25px;
+    margin-top: -45px;
+    cursor: pointer;
+    position: relative;
+    z-index: -1;
+}
+
+.open-icon {
+    margin-left: 24px;
+    margin-top: 2px;
+    font-size: 48px;
+}
+
+.move-list-item {
+    margin-top: 190%;
+}
+
+.open-icon:hover {
+    color: map-get($heroes-app-accent, A700) !important;
+    transition-duration: 0.5s;
+}
+
+* {
+    z-index: 10;
+}

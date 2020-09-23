@@ -1,0 +1,6 @@
+SQL server user name - standard
+password - standard
+instance name: localhost
+database name: hub_products
+
+port: 1433

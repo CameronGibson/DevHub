@@ -1,0 +1,75 @@
+<div class="sticky-header">
+    <header class="header-content">
+        <div class="column">
+            <!--route to the home page-->
+            <a routerLink="landing-page" routerLinkActive="active">
+                <mat-icon matTooltip="Go Home" class="header-column-icon">home</mat-icon>
+            </a>
+        </div>
+        <div class="column">
+            <div class="header-title">Dev Hub</div>
+        </div>
+        <div class="column">
+            <mat-icon class="header-column-menu header-column-icon more-vert-icon" matTooltip="User Options"
+                [matMenuTriggerFor]="userOptions">more_vert</mat-icon>
+            <a routerLink="cart" routerLinkActive="active">
+                <mat-icon class="header-column-menu cart-orientation" matBadge="0" matBadgeOverlap="true" isAbove="true"
+                    matBadgePosition="before" matBadgeSize="small" matBadgeColor="warn" matTooltip="View Cart">
+                    shopping_cart
+                </mat-icon>
+            </a>
+        </div>
+        <mat-menu #userOptions="matMenu">
+            <button mat-menu-item class="menu-item-text" routerLink="profile" routerLinkActive="active">
+                <mat-icon class="menu-icon">face</mat-icon>Profile
+            </button>
+            <button mat-menu-item class="menu-item-text" routerLink="membership" routerLinkActive="active">
+                <mat-icon class="menu-icon">favorite</mat-icon>Membership
+            </button>
+            <button mat-menu-item class="menu-item-text" routerLink="settings" routerLinkActive="active">
+                <mat-icon class="menu-icon">settings</mat-icon>Settings
+            </button>
+            <button mat-menu-item class="menu-item-text" routerLink="about" routerLinkActive="active">
+                <mat-icon class="menu-icon">info</mat-icon>About
+            </button>
+        </mat-menu>
+    </header>
+
+
+    <!--this needs to close with the click of an icon-->
+    <div *ngIf="!isCollapsed" class="sidenavClosed">
+        <mat-selection-list [multiple]="false" class="list-styling">
+            <div class="sub-section">Products</div>
+            <mat-list-option class="option-text" routerLink="music" routerLinkActive="active">Music
+            </mat-list-option>
+            <mat-list-option routerLink="products" routerLinkActive="active" class="option-text">
+                3D Models
+            </mat-list-option>
+            <mat-list-option class="option-text" routerLink="maps" routerLinkActive="active">Normal Maps
+            </mat-list-option>
+            <div class="sub-section dev-tool-align">Developer Tools</div>
+            <mat-list-option class="option-text" routerLink="spritesheet" routerLinkActive="active">Sprite Slicer
+            </mat-list-option>
+            <mat-list-option class="option-text" routerLink="animation" routerLinkActive="active">Animation Viewer
+            </mat-list-option>
+            <div class="move-list-item" (click)="toggleSideNav()">
+                <mat-icon class="close-icon">navigate_before</mat-icon>
+            </div>
+        </mat-selection-list>
+    </div>
+    <div *ngIf="isCollapsed" class="open-side-nav-icon">
+        <mat-icon class="open-icon" (click)="toggleSideNav()">navigate_next</mat-icon>
+    </div>
+</div>
+<router-outlet></router-outlet>
+
+
+<!--badge will update by increments of 1 when another item is added to the cart.
+    no contrast between list headers and highlighted list items.
+
+    still need to make the collapse icon responsive. 
+
+    move the sidenav off screen smoothly and add the expand icon immediately afterwards smoothly.
+
+    ^[ngClass] ???
+    -->

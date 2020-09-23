@@ -1,0 +1,28 @@
+ISSUES:
+
+when side nav is collapsed, it covers up the endorsed content toggle.
+
+
+
+
+
+
+
+
+NOTES:
+
+within tools I will have a sprite sheet maker.
+
+After I have a user table and my back and front end talking, I can possibly implement OAuth 2. which
+I can do with Spring Security.
+
+Got User data connected to the server now. Not using it yet.
+
+TODO:
+
+Add more products to the database. build out some more pages.
+
+implement a songs library, maybe see if i can integrate with sound cloud or just have mp3 files
+
+Need to implement a form for users to add products to the database as well as for new user entries and
+deleting accounts.

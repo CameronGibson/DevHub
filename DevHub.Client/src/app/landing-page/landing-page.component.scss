@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import 'src/styles.scss';
+
+.content-one {
+    height: 500px;
+    background-color: rgba(255,255,255,1);
+    margin-top: -18px;
+    position: relative;
+    z-index: -1;
+    align-content: center;
+    width: 90%;
+    margin: -20px auto;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+}
+
+.greeting {
+    background-color: map-get($heroes-app-primary, 800);
+    text-align: center;
+    height: 32px;
+}
+
+.subtitle-style {
+    font-family: 'Merriweather', serif;
+    padding-top: 7px;
+    font-weight: 600;
+}
+
+.landing-page-content-box {
+    padding: 20px;
+}
+
+.text-test {
+    color: map-get($heroes-app-primary, 800);
+    font-family: 'Merriweather', serif;
+}
