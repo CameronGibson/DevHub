@@ -1,9 +1,35 @@
-<div class="dialog-header">
-<h2 mat-dialog-title>Publish Content</h2>
-</div>
+<h1 mat-dialog-title class="dialog-title">Import Content</h1>
 <div mat-dialog-content>
-<!--input fields will go here and be sent to the database.-->
+
+<!--Name-->
+  <mat-form-field class="form-field-spacer">
+    <mat-label>Product Name</mat-label>
+    <input matInput maxlength="25" type="text">
+  </mat-form-field>
+  <!--Price-->
+  <mat-form-field class="form-field-spacer">
+    <mat-label>Price</mat-label>
+    <input matInput placeholder="10.00" type="number">
+  </mat-form-field>
 </div>
+<!--Description-->
+<div>
+  <mat-form-field class="textarea-spacer">
+    <mat-label>Description</mat-label>
+    <textarea matInput maxRows="5" maxlength="250" class="textarea-sizing" type="text"></textarea>
+  </mat-form-field>
+</div>
+<!--Image-->
+<form class="center-image-picker">
+  <input type="file" class="image-upload-button" onchange="getImage(this)">
+  <div class="filename-space">
+    <img id="product-image" src=""/>
+  </div>
+</form>
+
 <div mat-dialog-actions>
-    some buttons
+  <button mat-stroked-button (click)="onCancelClick()" class="dialog-button">Nevermind</button>
+  <button mat-stroked-button (click)="importContent()" class="dialog-button">Import</button>
 </div>
+
+<!--We will get the name dynamically, depending on who is logged in.-->

@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../models/product';
 import { ProductService } from '../services/product-services/product.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   providers: [ProductService],
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
 })
 
 //will eventually be getting this data from a db.
@@ -67,5 +68,45 @@ export class ProductsComponent implements OnInit {
 @Component({
   selector: 'publish-content-dialog',
   templateUrl: 'publish-content-dialog.html',
+  styleUrls: ['./products.component.scss'],
 })
-export class PublishContentDialog {}
+export class PublishContentDialog {
+
+  public product: Product;
+  public filename: string = "No Image Selected";
+
+
+  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, public openDialogRef: MatDialogRef<PublishContentDialog>){
+      this.product = new Product();
+    }
+
+  onSubmit(): void {
+    this.productService.save(this.product).subscribe(result => this.returnToProducts());
+  }
+
+  returnToProducts(): void {
+    this.router.navigate(['http://localhost:4200/products']);
+  }
+
+  onCancelClick(): void {
+    this.openDialogRef.close();
+  }
+
+  importContent(): void {
+    //handle the data
+    this.onCancelClick();
+  }
+
+  /*
+  getImage(input): void {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#product-image')
+          .attr('src', e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  */
+}

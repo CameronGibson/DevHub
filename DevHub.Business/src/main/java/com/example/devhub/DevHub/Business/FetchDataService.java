@@ -14,6 +14,4 @@ public interface FetchDataService extends JpaRepository<TDModel,Integer>{
 	@Override
 	List<TDModel> findAll();
 	
-	Optional<TDModel> findById(Long id);
-	
 	}

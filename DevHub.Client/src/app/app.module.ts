@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { ProductsComponent, PublishContentDialog } from './products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +38,9 @@ import { AnimationComponent } from './animation/animation.component';
 import { ProductService } from './services/product-services/product.service';
 import { UserService } from './services/user-services/user.service';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { TextFieldModule } from '@angular/cdk/text-field';
+
 
 @NgModule({
   declarations: [
@@ -55,12 +57,14 @@ import { MatDialogModule } from '@angular/material/dialog';
     MapsComponent,
     SpritesheetComponent,
     AnimationComponent,
+    PublishContentDialog,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSliderModule,
     MatButtonModule,
@@ -80,8 +84,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSelectModule,
     MatRadioModule,
     MatSlideToggleModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    TextFieldModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ProductService, UserService],
   bootstrap: [AppComponent],
 })

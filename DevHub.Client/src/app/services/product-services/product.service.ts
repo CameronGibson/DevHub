@@ -8,14 +8,21 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  private productsUrl: string;
+  private getProductsUrl: string;
+  private postProductUrl: string;
 
   constructor(private http: HttpClient) {
-    this.productsUrl = "http://localhost:8080/getAllModels";
+    this.getProductsUrl = "http://localhost:8080/getAllModels";
+    this.postProductUrl = "http://localhost:8080/postModel";
    }
 
    //this function hits the server just like PostMan.
    public findAll(): Observable<Product[]> {
-     return this.http.get<Product[]>(this.productsUrl);
+     return this.http.get<Product[]>(this.getProductsUrl);
    }
+
+   //add product to database via user input. still need to call from product.component
+   public save(product : Product) {
+     return this.http.post<Product>(this.postProductUrl, product);
+   } 
 }

@@ -78,3 +78,38 @@
     color: white;
 }
 
+.form-field-spacer {
+    padding: 10px;
+}
+
+.textarea-spacer {
+    width: 100%;
+}
+
+.textarea-sizing {
+    max-height: 100px;
+    min-height: 100px;
+}
+
+.dialog-button {
+    flex: auto;
+}
+
+.dialog-title {
+    text-align: center;
+}
+
+.image-upload-button {
+    font-size: inherit;
+    outline: none;
+    width: 102px;
+}
+
+.center-image-picker {
+    text-align: center; 
+    padding: 20px;    
+}
+
+.filename-space {
+    padding-top: 20px;
+}
