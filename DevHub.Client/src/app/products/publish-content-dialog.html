@@ -1,35 +1,44 @@
 <h1 mat-dialog-title class="dialog-title">Import Content</h1>
-<div mat-dialog-content>
-
-<!--Name-->
-  <mat-form-field class="form-field-spacer">
-    <mat-label>Product Name</mat-label>
-    <input matInput maxlength="25" type="text">
-  </mat-form-field>
-  <!--Price-->
-  <mat-form-field class="form-field-spacer">
-    <mat-label>Price</mat-label>
-    <input matInput placeholder="10.00" type="number">
-  </mat-form-field>
-</div>
-<!--Description-->
-<div>
-  <mat-form-field class="textarea-spacer">
-    <mat-label>Description</mat-label>
-    <textarea matInput maxRows="5" maxlength="250" class="textarea-sizing" type="text"></textarea>
-  </mat-form-field>
-</div>
-<!--Image-->
-<form class="center-image-picker">
-  <input type="file" class="image-upload-button" onchange="getImage(this)">
-  <div class="filename-space">
-    <img id="product-image" src=""/>
+  <div mat-dialog-content>
+    <!--Name-->
+    <mat-form-field class="form-field-spacer">
+      <mat-label>Product Name</mat-label>
+      <input [(ngModel)]="productName" matInput maxlength="25" type="text">
+      <mat-hint align="end">{{productName.length}} / 25</mat-hint>
+    </mat-form-field>
+    <!--Price-->
+    <mat-form-field class="form-field-spacer">
+      <mat-label>Price</mat-label>
+      <input [(ngModel)]="productPrice" matInput type="number" min="0">
+    </mat-form-field>
   </div>
-</form>
+  <!--Description-->
+  <div>
+    <mat-form-field class="textarea-spacer">
+      <mat-label>Description</mat-label>
+      <textarea [(ngModel)]="productDescription" matInput maxRows="5" maxlength="250" class="textarea-sizing"
+        type="text"></textarea>
+      <mat-hint align="end">{{productDescription.length}} / 250</mat-hint>
+    </mat-form-field>
+  </div>
+  <!--Image-->
+  <div class="center-image-picker">
+    <input [(ngModel)]="productImage" (change)="showSelectedImage($event)"
+      accept="image/x-png,image/gif,image/jpeg,image/svg" type="file" class="image-upload-button">
+    <div>
+      <p *ngIf="productImage != null" class="image-title"><label>Image</label></p>
+      <p *ngIf="productImage == null" class="image-title"><label>Please choose an image</label></p>
+    </div>
+    <div>
+      <img class="image-resizing" *ngIf="productImage != null" [src]="imageUrl" alt="No image selected" />
+    </div>
+  </div>
 
 <div mat-dialog-actions>
   <button mat-stroked-button (click)="onCancelClick()" class="dialog-button">Nevermind</button>
-  <button mat-stroked-button (click)="importContent()" class="dialog-button">Import</button>
+  <button [disabled]="productImage == null || productName == '' || productDescription == ''" mat-stroked-button
+    (click)="onSubmit()" class="dialog-button">Import</button>
 </div>
 
-<!--We will get the name dynamically, depending on who is logged in.-->
+<!--We will get the author's name dynamically, depending on who is logged in.
+content is never immediately endorsed. or may be dependant upon status.-->

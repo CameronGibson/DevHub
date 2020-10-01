@@ -3,6 +3,7 @@ import { Product } from '../models/product';
 import { ProductService } from '../services/product-services/product.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-products',
@@ -73,40 +74,59 @@ export class ProductsComponent implements OnInit {
 export class PublishContentDialog {
 
   public product: Product;
-  public filename: string = "No Image Selected";
+  public productId: number = 15;
+  public productDescription: string = "";
+  public productName: string = "";
+  public productPrice: number = 0.00;
+  public productImage: any;
+  public authorName: string = this.getAuthorName();
+  public productIsEndorsed: boolean = false;
+  public imageUrl: any;
 
 
   constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, public openDialogRef: MatDialogRef<PublishContentDialog>){
       this.product = new Product();
     }
 
+  //save the data to the db.  
   onSubmit(): void {
-    this.productService.save(this.product).subscribe(result => this.returnToProducts());
+    //buid up Product with user input.
+    this.product = { 
+      'id': this.productId,
+      'modelName': this.productName,
+      'modelDescription': this.productDescription,
+      'modelPrice': this.productPrice,
+      'modelImage': this.productImage,
+      'modelIsEndorsed': this.productIsEndorsed,
+      'authorName': this.authorName};
+    this.productService.save(this.product).subscribe( productToBePosted => this.product = productToBePosted);
+    this.onCancelClick();
   }
 
+  //re-route to the product page.
   returnToProducts(): void {
     this.router.navigate(['http://localhost:4200/products']);
   }
 
+  //close the import content dialog.
   onCancelClick(): void {
     this.openDialogRef.close();
   }
 
-  importContent(): void {
-    //handle the data
-    this.onCancelClick();
+  //retrieve the author name dynamically, depending on who is logged in.
+  getAuthorName(): string {
+    //for now, this just passes back a hard coded name.
+    return "Cameron Gibson";
   }
 
-  /*
-  getImage(input): void {
-    if (input.files && input.files[0]) {
+  //show the image that has been selected.
+  showSelectedImage(event): void {
+    if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
-      reader.onload = function (e) {
-        $('#product-image')
-          .attr('src', e.target.result);
-      };
-      reader.readAsDataURL(input.files[0]);
-    }
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.imageUrl = event.target.result;
+      }
   }
-  */
+}
 }

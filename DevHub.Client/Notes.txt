@@ -1,17 +1,5 @@
-ISSUES:
-
-when side nav is collapsed, it covers up the endorsed content toggle.
-
-
-
-
-
-
-
 
 NOTES:
-
-within tools I will have a sprite sheet maker.
 
 After I have a user table and my back and front end talking, I can possibly implement OAuth 2. which
 I can do with Spring Security.
@@ -20,9 +8,14 @@ Got User data connected to the server now. Not using it yet.
 
 TODO:
 
+Figure out how to add images to my database(PAIN IN MY ASS/ something to do with SQL permissions).
+
+issues with http.post request might have something to do with my
+ssms permissions.
+
+I'm 99% sure my POST request is making it to my server but Spring JPA is not handling the data how it is intended to.
+
 Add more products to the database. build out some more pages.
 
 implement a songs library, maybe see if i can integrate with sound cloud or just have mp3 files
 
-Need to implement a form for users to add products to the database as well as for new user entries and
-deleting accounts.

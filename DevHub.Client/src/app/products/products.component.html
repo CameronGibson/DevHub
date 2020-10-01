@@ -19,7 +19,7 @@
             <p class="product-price">${{product.modelPrice}}</p>
             <mat-divider></mat-divider>
             <mat-card-content class="product-content img-position">
-                <img class="img-position" src="{{product.modelImage}}" alt="Product Image">
+                <img class="img-position" [src]="product.modelImage" alt="Product Image">
             </mat-card-content>
             <mat-divider></mat-divider>
             <mat-card-action>
