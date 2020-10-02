@@ -1,10 +1,12 @@
 
 NOTES:
 
+Server side error 500, nvarchar is incompatible with type image
+
 After I have a user table and my back and front end talking, I can possibly implement OAuth 2. which
 I can do with Spring Security.
 
-Got User data connected to the server now. Not using it yet.
+Got User data connected to the server now. Not using it yet. Switched the data type for modelImage to Blob from String
 
 TODO:
 

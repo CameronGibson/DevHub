@@ -90,7 +90,9 @@ export class PublishContentDialog {
 
   //save the data to the db.  
   onSubmit(): void {
-    //buid up Product with user input.
+    this.productName = this.titleCaseFormatter(this.productName);
+    this.productDescription = this.stringFormatter(this.productDescription);
+    this.authorName = this.stringFormatter(this.authorName);
     this.product = { 
       'id': this.productId,
       'modelName': this.productName,
@@ -98,9 +100,24 @@ export class PublishContentDialog {
       'modelPrice': this.productPrice,
       'modelImage': this.productImage,
       'modelIsEndorsed': this.productIsEndorsed,
-      'authorName': this.authorName};
+      'authorName': this.authorName
+    };
+    console.log(this.product);
     this.productService.save(this.product).subscribe( productToBePosted => this.product = productToBePosted);
     this.onCancelClick();
+  }
+
+  titleCaseFormatter(str : string) : string {
+    var splitString = str.split(' ');
+    for (var i = 0; i < splitString.length; i++) {
+      splitString[i] = splitString[i].charAt(0).toUpperCase() + splitString[i].slice(1);
+    }
+    return splitString.join(' ');
+  }
+
+  stringFormatter(str : string) : string {
+    var firstLetter = str.charAt(0).toUpperCase();
+    return firstLetter.concat(str.slice(1, str.length).toLowerCase());
   }
 
   //re-route to the product page.
