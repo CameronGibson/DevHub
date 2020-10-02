@@ -89,7 +89,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     TextFieldModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [ProductService, UserService],
+  providers: [ProductService, UserService, ProductsComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

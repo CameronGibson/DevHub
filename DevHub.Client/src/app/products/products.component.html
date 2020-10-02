@@ -16,7 +16,8 @@
     <div *ngFor="let product of productList">
         <mat-card class="card-style">
             <mat-card-title class="product-title">{{product.modelName}}</mat-card-title>
-            <p class="product-price">${{product.modelPrice}}</p>
+            <p *ngIf="product.modelPrice != 0" class="product-price">${{product.modelPrice}}</p>
+            <p *ngIf="product.modelPrice == 0" class="product-price free-style">F R E E</p>
             <mat-divider></mat-divider>
             <mat-card-content class="product-content img-position">
                 <img class="img-position" [src]="product.modelImage" alt="Product Image">

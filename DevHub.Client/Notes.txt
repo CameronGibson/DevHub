@@ -3,21 +3,19 @@ NOTES:
 
 Server side error 500, nvarchar is incompatible with type image
 
+Server side is not passing back images, just image urls.
+
+Auto increment is not working when passing back items from the client side.
+
 After I have a user table and my back and front end talking, I can possibly implement OAuth 2. which
 I can do with Spring Security.
 
-Got User data connected to the server now. Not using it yet. Switched the data type for modelImage to Blob from String
+Got User data connected to the server now. Not using it yet. 
 
 TODO:
 
 Figure out how to add images to my database(PAIN IN MY ASS/ something to do with SQL permissions).
 
-issues with http.post request might have something to do with my
-ssms permissions.
-
-I'm 99% sure my POST request is making it to my server but Spring JPA is not handling the data how it is intended to.
-
-Add more products to the database. build out some more pages.
-
 implement a songs library, maybe see if i can integrate with sound cloud or just have mp3 files
 
+build out more pages.

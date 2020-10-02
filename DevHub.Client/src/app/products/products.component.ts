@@ -12,7 +12,6 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./products.component.scss'],
 })
 
-//will eventually be getting this data from a db.
 export class ProductsComponent implements OnInit {
   public productList: Product[] = [];
   public isEndorsed: boolean = false;
@@ -23,7 +22,7 @@ export class ProductsComponent implements OnInit {
 
   //retrieve data from the http request to the backend.
   ngOnInit(): void {
-    this.productService.findAll().subscribe(data => {     
+    this.productService.findAll().subscribe(data => {
       data.forEach(element => {
         this.productList.push(element);
       });
@@ -61,8 +60,8 @@ export class ProductsComponent implements OnInit {
 
     publishContentDialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-  });
-}
+    });
+  }
 }
 
 //Component for the publish content dialog.
@@ -74,26 +73,29 @@ export class ProductsComponent implements OnInit {
 export class PublishContentDialog {
 
   public product: Product;
-  public productId: number = 15;
+  public productId: number = 17;
   public productDescription: string = "";
   public productName: string = "";
   public productPrice: number = 0.00;
-  public productImage: any;
-  public authorName: string = this.getAuthorName();
+  public productImage: File;
+  public authorName: string = "Cameron Gibson"; //will implement this.getAuthorName()
   public productIsEndorsed: boolean = false;
   public imageUrl: any;
+  public productListForDialog: Product[] = [];
 
-
-  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, public openDialogRef: MatDialogRef<PublishContentDialog>){
-      this.product = new Product();
-    }
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private productService: ProductService,
+    public openDialogRef: MatDialogRef<PublishContentDialog>) {
+    this.product = new Product();
+  }
 
   //save the data to the db.  
   onSubmit(): void {
     this.productName = this.titleCaseFormatter(this.productName);
     this.productDescription = this.stringFormatter(this.productDescription);
-    this.authorName = this.stringFormatter(this.authorName);
-    this.product = { 
+    this.authorName = this.titleCaseFormatter(this.authorName);
+    this.product = {
       'id': this.productId,
       'modelName': this.productName,
       'modelDescription': this.productDescription,
@@ -103,11 +105,11 @@ export class PublishContentDialog {
       'authorName': this.authorName
     };
     console.log(this.product);
-    this.productService.save(this.product).subscribe( productToBePosted => this.product = productToBePosted);
+    this.productService.save(this.product).subscribe(productToBePosted => this.product = productToBePosted);
     this.onCancelClick();
   }
 
-  titleCaseFormatter(str : string) : string {
+  titleCaseFormatter(str: string): string {
     var splitString = str.split(' ');
     for (var i = 0; i < splitString.length; i++) {
       splitString[i] = splitString[i].charAt(0).toUpperCase() + splitString[i].slice(1);
@@ -115,14 +117,9 @@ export class PublishContentDialog {
     return splitString.join(' ');
   }
 
-  stringFormatter(str : string) : string {
+  stringFormatter(str: string): string {
     var firstLetter = str.charAt(0).toUpperCase();
     return firstLetter.concat(str.slice(1, str.length).toLowerCase());
-  }
-
-  //re-route to the product page.
-  returnToProducts(): void {
-    this.router.navigate(['http://localhost:4200/products']);
   }
 
   //close the import content dialog.
@@ -144,6 +141,6 @@ export class PublishContentDialog {
       reader.onload = (event) => { // called once readAsDataURL is completed
         this.imageUrl = event.target.result;
       }
+    }
   }
-}
 }

@@ -1,6 +1,5 @@
 package com.example.devhub.DevHub.Business;
 
-import java.sql.Blob;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,8 +26,8 @@ public class TDModel {
 	@Column(name = "model_price")
 	private Double modelPrice;
 	
-	@Column(name = "model_image")
-	private Blob modelImage;
+	@Column(name = "model_image", length = 1000)
+	private byte[] modelImage;
 	
 	@Column(name = "is_endorsed")
 	private Boolean modelIsEndorsed;
@@ -42,7 +41,7 @@ public class TDModel {
 	 */
 	public TDModel () {}
 	
-	public TDModel(Long id, String modelName, String modelDescription, Double modelPrice, Blob modelImage, Boolean modelIsEndorsed, String publisherName) {
+	public TDModel(Long id, String modelName, String modelDescription, Double modelPrice, byte[] modelImage, Boolean modelIsEndorsed, String publisherName) {
 		this.id = id;
 		this.modelName = modelName;
 		this.modelDescription = modelDescription;
@@ -68,7 +67,7 @@ public class TDModel {
 		return modelPrice;
 	}
 
-	public Blob getModelImage() {
+	public byte[] getModelImage() {
 		return modelImage;
 	}
 
