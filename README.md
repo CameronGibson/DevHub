@@ -1,7 +1,9 @@
 # DevHub
 
 Client side framework: Angular 10
+
 Server side framework: Spring Boot 2(Maven) specifically Spring Data JPA.
+
 Database: SQL Server Management Studio(SQL)
 
 This is a personal project of mine that I have been building to demonstrate my ever-growing knowledge of full-stack programming.
