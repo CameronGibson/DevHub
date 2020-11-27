@@ -10,7 +10,6 @@
         </div>
     </button>
 </mat-toolbar>
-
 <div class="separate-content"></div>
 <section class="grid-style">
     <div *ngFor="let product of productList">
@@ -20,7 +19,7 @@
             <p *ngIf="product.modelPrice == 0" class="product-price free-style">F R E E</p>
             <mat-divider></mat-divider>
             <mat-card-content class="product-content img-position">
-                <img class="img-position" [src]="product.modelImage" alt="Product Image">
+                <img class="img-position" [src]="" alt="Product Image">
             </mat-card-content>
             <mat-divider></mat-divider>
             <mat-card-action>

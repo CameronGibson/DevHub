@@ -19,3 +19,22 @@ Figure out how to add images to my database(PAIN IN MY ASS/ something to do with
 implement a songs library, maybe see if i can integrate with sound cloud or just have mp3 files
 
 build out more pages.
+
+
+
+
+
+Images not displaying properly. Now im storing the last file extension in the database and 
+building the path in the ngOnInit function while elements are loaded in.
+
+Then I display the image in html with the [src]="product.modelImage".
+
+This is still causing errors.
+
+Known issues: 
+    -any null path throws errors for cannot find.
+    -same thing happens even when there is a non null path.
+    -database not storing author name...
+
+
+    REVIEW VIDEO I FOUND ON YOUTUBE ABOUT THE FILE TRANSFER ISSUE

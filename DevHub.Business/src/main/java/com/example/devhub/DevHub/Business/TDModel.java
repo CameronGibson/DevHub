@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 public class TDModel {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)//maybe try .IDENTITY
 	@Column(name = "Id")
 	private Long id;
 	
@@ -26,6 +27,7 @@ public class TDModel {
 	@Column(name = "model_price")
 	private Double modelPrice;
 	
+	@Lob
 	@Column(name = "model_image", length = 1000)
 	private byte[] modelImage;
 	
@@ -68,7 +70,7 @@ public class TDModel {
 	}
 
 	public byte[] getModelImage() {
-		return modelImage;
+		return modelImage;	
 	}
 
 	public Boolean isModelIsEndorsed() {

@@ -23,7 +23,7 @@
   </div>
   <!--Image-->
   <div class="center-image-picker">
-    <input [(ngModel)]="productImage" (change)="showSelectedImage($event)"
+    <input (change)="onFileSelected($event)"
       accept="image/x-png,image/gif,image/jpeg,image/svg" type="file" class="image-upload-button">
     <div>
       <p *ngIf="productImage != null" class="image-title"><label>Image</label></p>

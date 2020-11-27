@@ -3,7 +3,7 @@ export class Product {
     modelName: string;
     modelDescription: string;
     modelPrice: number;
-    modelImage: File;
+    modelImage: any;
     modelIsEndorsed: boolean;
     authorName: string;
 }

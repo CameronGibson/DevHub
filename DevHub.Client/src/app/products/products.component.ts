@@ -77,8 +77,14 @@ export class PublishContentDialog {
   public productDescription: string = "";
   public productName: string = "";
   public productPrice: number = 0.00;
-  public productImage: File;
-  public authorName: string = "Cameron Gibson"; //will implement this.getAuthorName()
+
+  /*Not being used for anything rn. Am using imageUrl as the image attribute since it is in base64.
+  I believe i need to remove pieces of the string before i send it to the server since ':' is not a recognizable
+  base64 character. Maybe then i can convert it to byte[].
+  */
+  public productImage: any;
+
+  public authorName: string = "Cameron Gibson"; 
   public productIsEndorsed: boolean = false;
   public imageUrl: any;
   public productListForDialog: Product[] = [];
@@ -100,7 +106,7 @@ export class PublishContentDialog {
       'modelName': this.productName,
       'modelDescription': this.productDescription,
       'modelPrice': this.productPrice,
-      'modelImage': this.productImage,
+      'modelImage': this.imageUrl,
       'modelIsEndorsed': this.productIsEndorsed,
       'authorName': this.authorName
     };
@@ -127,19 +133,15 @@ export class PublishContentDialog {
     this.openDialogRef.close();
   }
 
-  //retrieve the author name dynamically, depending on who is logged in.
-  getAuthorName(): string {
-    //for now, this just passes back a hard coded name.
-    return "Cameron Gibson";
-  }
-
   //show the image that has been selected.
-  showSelectedImage(event): void {
+  onFileSelected(event): void {
+    this.productImage = <File>event.target.files[0].name;
+    //display the selected image in the form dialog.
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
-      reader.onload = (event) => { // called once readAsDataURL is completed
-        this.imageUrl = event.target.result;
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event) => { 
+        this.imageUrl = event.target.result;   //returning this string is a base64
       }
     }
   }
