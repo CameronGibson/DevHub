@@ -1,6 +1,5 @@
 package com.example.devhub.DevHub.Business;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -48,7 +47,7 @@ public class TDModel {
 		this.modelName = modelName;
 		this.modelDescription = modelDescription;
 		this.modelPrice = modelPrice;
-		this.modelImage = modelImage;
+		this.modelImage = modelImage; //encode as base64 here. try calling a function to do the work.
 		this.modelIsEndorsed = modelIsEndorsed;
 		this.publisherName = publisherName;
 	}

@@ -11,7 +11,7 @@ import { MusicComponent } from './music/music.component';
 import { AnimationComponent } from './animation/animation.component';
 import { MapsComponent } from './maps/maps.component';
 import { SpritesheetComponent } from './spritesheet/spritesheet.component';
-
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
     { path:'products', component: ProductsComponent },
@@ -20,7 +20,7 @@ const routes: Routes = [
     { path:'membership', component: MembershipComponent },
     { path:'settings', component: SettingsComponent },
     { path:'about', component: AboutComponent },
-    { path:'products', component: ProductsComponent },
+    { path:'header', component: HeaderComponent },
     { path:'cart', component: CartComponent },
     { path:'music', component: MusicComponent },
     { path:'animation', component: AnimationComponent },
@@ -29,7 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })], // or corrected
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

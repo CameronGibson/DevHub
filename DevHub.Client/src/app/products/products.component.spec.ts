@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ProductsComponent, PublishContentDialog } from './products.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -6,7 +6,7 @@ describe('ProductsComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ProductsComponent, PublishContentDialog ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

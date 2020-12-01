@@ -106,7 +106,7 @@ export class PublishContentDialog {
       'modelName': this.productName,
       'modelDescription': this.productDescription,
       'modelPrice': this.productPrice,
-      'modelImage': this.imageUrl,
+      'modelImage': this.imageUrl, /*<-- base64*/
       'modelIsEndorsed': this.productIsEndorsed,
       'authorName': this.authorName
     };
