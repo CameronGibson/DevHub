@@ -2,18 +2,17 @@
 
 A WORK IN PROGRESS
 
-Client side framework: Angular 10
+Client side framework: Angular 11
 
-Server side framework: Spring Boot 2(Maven) specifically Spring Data JPA.
+Server side framework: ASP.NET Framework w/ Web API 2 (Formerly used Spring Boot 2)
 
 Database: SQL Server Management Studio(SQL)
 
 This is a personal project of mine that I have been building to demonstrate my ever-growing knowledge of full-stack programming.
 
-This web based application is written with multiple languages such as Java, TypeScript, SCSS and HTML and some XML which is mostly Spring Boot generated.
+This web based application is written with multiple languages such as C#, TypeScript, SCSS and HTML.
 
 The aim of this application is to demonstate the author's knowledge of full-stack application development(HTTP protocol, RESTful API's) and more.
-
 
 What does this application do and what is it for?
 
