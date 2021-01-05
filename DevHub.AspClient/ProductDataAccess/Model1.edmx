@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProductDetailModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Models">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="model_name" Type="varchar" MaxLength="25" />
+          <Property Name="model_description" Type="varchar" MaxLength="250" />
+          <Property Name="model_price" Type="money" />
+          <Property Name="model_image" Type="image" />
+          <Property Name="is_endorsed" Type="bit" />
+          <Property Name="publisher_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="ProductDetailModelStoreContainer">
+          <EntitySet Name="Models" EntityType="Self.Models" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProductDetailModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="model_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="model_description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="model_price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="model_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="is_endorsed" Type="Boolean" />
+          <Property Name="publisher_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ProductDetailEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Models" EntityType="Self.Model" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProductDetailModelStoreContainer" CdmEntityContainer="ProductDetailEntities">
+          <EntitySetMapping Name="Models">
+            <EntityTypeMapping TypeName="ProductDetailModel.Model">
+              <MappingFragment StoreEntitySet="Models">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="model_name" ColumnName="model_name" />
+                <ScalarProperty Name="model_description" ColumnName="model_description" />
+                <ScalarProperty Name="model_price" ColumnName="model_price" />
+                <ScalarProperty Name="model_image" ColumnName="model_image" />
+                <ScalarProperty Name="is_endorsed" ColumnName="is_endorsed" />
+                <ScalarProperty Name="publisher_name" ColumnName="publisher_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

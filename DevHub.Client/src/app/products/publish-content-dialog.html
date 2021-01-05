@@ -1,15 +1,16 @@
 <h1 mat-dialog-title class="dialog-title">Import Content</h1>
+<form>
   <div mat-dialog-content>
     <!--Name-->
     <mat-form-field class="form-field-spacer">
       <mat-label>Product Name</mat-label>
-      <input [(ngModel)]="productName" matInput maxlength="25" type="text">
+      <input [(ngModel)]="productName" matInput maxlength="25" type="text" name="modelName">
       <mat-hint align="end">{{productName.length}} / 25</mat-hint>
     </mat-form-field>
     <!--Price-->
     <mat-form-field class="form-field-spacer">
       <mat-label>Price</mat-label>
-      <input [(ngModel)]="productPrice" matInput type="number" min="0">
+      <input [(ngModel)]="productPrice" matInput type="number" min="0" name="modelPrice">
     </mat-form-field>
   </div>
   <!--Description-->
@@ -17,14 +18,14 @@
     <mat-form-field class="textarea-spacer">
       <mat-label>Description</mat-label>
       <textarea [(ngModel)]="productDescription" matInput maxRows="5" maxlength="250" class="textarea-sizing"
-        type="text"></textarea>
+        type="text" name="modelDescription"></textarea>
       <mat-hint align="end">{{productDescription.length}} / 250</mat-hint>
     </mat-form-field>
   </div>
   <!--Image-->
   <div class="center-image-picker">
     <input (change)="onFileSelected($event)"
-      accept="image/x-png,image/gif,image/jpeg,image/svg" type="file" class="image-upload-button">
+      accept="image/x-png,image/gif,image/jpeg,image/svg" name="modelImage" type="file" class="image-upload-button">
     <div>
       <p *ngIf="productImage != null" class="image-title"><label>Image</label></p>
       <p *ngIf="productImage == null" class="image-title"><label>Please choose an image</label></p>
@@ -33,6 +34,7 @@
       <img class="image-resizing" *ngIf="productImage != null" [src]="imageUrl" alt="No image selected" />
     </div>
   </div>
+</form>
 
 <div mat-dialog-actions>
   <button mat-stroked-button (click)="onCancelClick()" class="dialog-button">Nevermind</button>

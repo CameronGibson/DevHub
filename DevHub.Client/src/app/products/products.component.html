@@ -14,9 +14,9 @@
 <section class="grid-style">
     <div *ngFor="let product of productList">
         <mat-card class="card-style">
-            <mat-card-title class="product-title">{{product.modelName}}</mat-card-title>
-            <p *ngIf="product.modelPrice != 0" class="product-price">${{product.modelPrice}}</p>
-            <p *ngIf="product.modelPrice == 0" class="product-price free-style">F R E E</p>
+            <mat-card-title class="product-title">{{product.model_name}}</mat-card-title>
+            <p *ngIf="product.model_price != 0" class="product-price">${{product.model_price}}</p>
+            <p *ngIf="product.model_price == 0" class="product-price free-style">F R E E</p>
             <mat-divider></mat-divider>
             <mat-card-content class="product-content img-position">
                 <img class="img-position" [src]="" alt="Product Image">
@@ -25,7 +25,7 @@
             <mat-card-action>
                 <!--when clicked, will add to cart-->
                 <div class="footer-card-content">
-                    <mat-icon matTooltip="Add {{product.modelName}} To Cart" class="card-footer-icon">add_shopping_cart
+                    <mat-icon matTooltip="Add {{product.model_name}} To Cart" class="card-footer-icon">add_shopping_cart
                     </mat-icon>
                 </div>
             </mat-card-action>

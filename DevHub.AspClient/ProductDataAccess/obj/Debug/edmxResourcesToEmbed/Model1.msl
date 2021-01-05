@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProductDetailModelStoreContainer" CdmEntityContainer="ProductDetailEntities">
+    <EntitySetMapping Name="Models">
+      <EntityTypeMapping TypeName="ProductDetailModel.Model">
+        <MappingFragment StoreEntitySet="Models">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="model_name" ColumnName="model_name" />
+          <ScalarProperty Name="model_description" ColumnName="model_description" />
+          <ScalarProperty Name="model_price" ColumnName="model_price" />
+          <ScalarProperty Name="model_image" ColumnName="model_image" />
+          <ScalarProperty Name="is_endorsed" ColumnName="is_endorsed" />
+          <ScalarProperty Name="publisher_name" ColumnName="publisher_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

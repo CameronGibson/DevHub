@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FetchDataService extends JpaRepository<TDModel,Integer>{
 
+	//get all database entries.
 	@Override
 	List<TDModel> findAll();
 	

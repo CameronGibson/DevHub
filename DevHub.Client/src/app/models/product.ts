@@ -1,9 +1,9 @@
 export class Product {
-    id: number;
-    modelName: string;
-    modelDescription: string;
-    modelPrice: number;
-    modelImage: any;
-    modelIsEndorsed: boolean;
-    authorName: string;
+    Id: number;
+    model_name: string;
+    model_description: string;
+    model_price: number;
+    model_image: any;
+    is_endorsed: boolean;
+    publisher_name: string;
 }

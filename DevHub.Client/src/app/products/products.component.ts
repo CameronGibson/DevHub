@@ -27,6 +27,7 @@ export class ProductsComponent implements OnInit {
         this.productList.push(element);
       });
     });
+    console.log(this.productList);
   }
 
   getProductCount(): number {
@@ -43,7 +44,7 @@ export class ProductsComponent implements OnInit {
     if (this.showEndorsedContentOnly) {
       var endorsedList: Product[] = [];
       this.productList.forEach(product => {
-        if (product.modelIsEndorsed) {
+        if (product.is_endorsed) {
           endorsedList.push(product);
         }
       });
@@ -89,7 +90,9 @@ export class PublishContentDialog {
   public imageUrl: any;
   public productListForDialog: Product[] = [];
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private httpClient: HttpClient,
+    private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService,
     public openDialogRef: MatDialogRef<PublishContentDialog>) {
@@ -102,15 +105,15 @@ export class PublishContentDialog {
     this.productDescription = this.stringFormatter(this.productDescription);
     this.authorName = this.titleCaseFormatter(this.authorName);
     this.product = {
-      'id': this.productId,
-      'modelName': this.productName,
-      'modelDescription': this.productDescription,
-      'modelPrice': this.productPrice,
-      'modelImage': this.imageUrl, /*<-- base64*/
-      'modelIsEndorsed': this.productIsEndorsed,
-      'authorName': this.authorName
+      'Id': this.productId,
+      'model_name': this.productName,
+      'model_description': this.productDescription,
+      'model_price': this.productPrice,
+      'model_image': this.imageUrl, /*<-- base64*/
+      'is_endorsed': this.productIsEndorsed,
+      'publisher_name': this.authorName
     };
-    console.log(this.product);
+
     this.productService.save(this.product).subscribe(productToBePosted => this.product = productToBePosted);
     this.onCancelClick();
   }

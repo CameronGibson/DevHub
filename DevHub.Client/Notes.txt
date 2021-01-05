@@ -1,20 +1,15 @@
 
 NOTES:
 
-Server side error 500, nvarchar is incompatible with type image
-
-Server side is not passing back images, just image urls.
-
 Auto increment is not working when passing back items from the client side.
 
-After I have a user table and my back and front end talking, I can possibly implement OAuth 2. which
-I can do with Spring Security.
+After I have a user table and my back and front end talking, I can possibly implement OAuth 2. maybe Okta
 
 Got User data connected to the server now. Not using it yet. 
 
 TODO:
 
-Figure out how to add images to my database(PAIN IN MY ASS/ something to do with SQL permissions).
+Figure out how to add images to my database.
 
 implement a songs library, maybe see if i can integrate with sound cloud or just have mp3 files
 

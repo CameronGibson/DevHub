@@ -3,34 +3,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from '../../models/product';
 import { Observable } from 'rxjs';
 
-//http header.
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private getProductsUrl: string;
-  private postProductUrl: string;
+  private getProductsUri: string;
+  private postProductUri: string;
   public testUrl: string = "http://httpbin.org/post";
   
   constructor(private http: HttpClient) {
-    this.getProductsUrl = "http://localhost:8080/getAllModels";
-    this.postProductUrl = "http://localhost:8080/postModel";
+    this.getProductsUri = "https://localhost:44317/api/products";
+    this.postProductUri = "http://localhost:8080/postModel";
    }
 
    //this function hits the server just like PostMan.
    public findAll(): Observable<Product[]> {
-     return this.http.get<Product[]>(this.getProductsUrl);
+     return this.http.get<Product[]>(this.getProductsUri);
    }
 
    //add product to database via user input. still need to call from product.component
    public save(product : Product): Observable<Product> {
-     return this.http.post<Product>(this.postProductUrl, product, httpOptions); 
+     return this.http.post<Product>(this.postProductUri, product); 
    } 
 }

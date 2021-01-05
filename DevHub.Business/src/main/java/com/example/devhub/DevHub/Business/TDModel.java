@@ -1,5 +1,7 @@
 package com.example.devhub.DevHub.Business;
 
+import java.util.Arrays;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -72,6 +74,10 @@ public class TDModel {
 		return modelImage;	
 	}
 
+	public void setModelImage(byte[] modelImage) {
+		this.modelImage = modelImage;
+	}
+
 	public Boolean isModelIsEndorsed() {
 		return modelIsEndorsed;
 	}
@@ -79,5 +85,14 @@ public class TDModel {
 	public String getPublisherName() {
 		return publisherName;
 	}
+
+	@Override
+	public String toString() {
+		return "TDModel [id=" + id + ", modelName=" + modelName + ", modelDescription=" + modelDescription
+				+ ", modelPrice=" + modelPrice + ", modelImage=" + Arrays.toString(modelImage) + ", modelIsEndorsed="
+				+ modelIsEndorsed + ", publisherName=" + publisherName + "]";
+	}
+	
+	
 	
 }
